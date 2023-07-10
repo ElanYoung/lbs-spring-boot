@@ -26,14 +26,13 @@ public class RestGetUriTemplateHandler implements UriTemplateHandler {
 			builder.queryParam(entry.getKey(), entry.getValue());
 		}
 		String uriString = builder.toUriString();
-		uriString = uriString.replaceAll("%3D", "=");
-		return uriTemplateHandler.expand(uriString, uriVariables);
+		return URI.create(uriString);
 	}
 
 	@NonNull
 	@Override
 	public URI expand(@NonNull String uriTemplate, @NonNull Object... uriVariables) {
-		return uriTemplateHandler.expand(uriTemplate, uriVariables);
+		return URI.create(uriTemplateHandler.expand(uriTemplate, uriVariables).toString());
 	}
 
 }
