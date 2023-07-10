@@ -87,7 +87,6 @@ public class LbsClientTest {
 			.radius(1000)
 			.autoExtend(1)
 			.build();
-		// TODO 修复筛选条件签名验证失败问题
 		PlaceExploreRequest placeExploreRequest = PlaceExploreRequest.builder()
 			.boundary(nearbyBoundaryRequest)
 			.policy(SearchPolicyEnum.LOCATION_CHECK_IN_SCENE.getPolicy())
