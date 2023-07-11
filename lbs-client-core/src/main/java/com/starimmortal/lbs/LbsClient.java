@@ -147,6 +147,15 @@ public class LbsClient {
 	}
 
 	/**
+	 * 坐标转换
+	 * @param request 坐标转换请求参数
+	 * @return 坐标转换响应结果
+	 */
+	public CoordTranslateResponse coordTranslate(CoordTranslateRequest request) {
+		return execute(request);
+	}
+
+	/**
 	 * IP定位
 	 * @param ip IP地址，缺省时会使用请求端的IP
 	 * @return IP定位响应结果
