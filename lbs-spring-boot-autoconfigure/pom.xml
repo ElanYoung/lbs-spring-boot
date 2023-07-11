@@ -7,7 +7,7 @@
     <parent>
         <artifactId>lbs-spring-boot</artifactId>
         <groupId>com.starimmortal</groupId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
 
     <artifactId>lbs-spring-boot-autoconfigure</artifactId>
@@ -23,7 +23,7 @@
         <dependency>
             <groupId>com.starimmortal</groupId>
             <artifactId>lbs-client-core</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </dependency>
         <!-- 自动配置 -->
         <dependency>

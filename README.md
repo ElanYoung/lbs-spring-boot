@@ -1,7 +1,7 @@
 <h1 align="center"><a href="https://lbs.qq.com/service/webService/webServiceGuide/webServiceOverview" target="_blank">📍 腾讯位置服务 WebService API Spring Boot Starter</a></h1>
 <p align="center">
   <a href="https://doc.starimmortal.com"><img alt="author" src="https://img.shields.io/badge/author-ElanYoung-blue.svg"/></a>
-  <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html"><img alt="JDK" src="https://img.shields.io/badge/JDK-1.8.0_312-orange.svg"/></a>
+  <a href="https://search.maven.org/search?q=g:com.starimmortal%20AND%20a:lbs-spring-boot-starter"><img alt="Maven Central" src="https://img.shields.io/maven-central/v/com.starimmortal/lbs-spring-boot-starter?label=Maven%20Central"/></a>
   <a href="https://docs.spring.io/spring-boot/docs/2.7.12/reference/html/"><img alt="Spring Boot" src="https://img.shields.io/badge/Spring Boot-2.7.12-brightgreen.svg"/></a>
   <a href="https://github.com/ElanYoung/lbs-spring-boot/blob/master/LICENSE"><img alt="LICENSE" src="https://img.shields.io/github/license/ElanYoung/lbs-spring-boot.svg"/></a>
 </p>
@@ -30,7 +30,7 @@
 <dependency>
   <groupId>com.starimmortal</groupId>
   <artifactId>lbs-spring-boot-starter</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 
@@ -159,8 +159,6 @@ public class LbsClientTest {
 ```
 
 #### [周边推荐（explore）](https://lbs.qq.com/service/webService/webServiceGuide/webServiceSearch#5)
-
-> 注意：加入筛选条件会报签名验证失败问题，暂时不知道原因，已向官方提交工单反馈
 
 ```java
 @SpringBootTest
@@ -293,6 +291,30 @@ public class LbsClientTest {
 | 10 | 小区、大厦              |
 | 11 | POI点               |
 
+### [坐标转换](https://lbs.qq.com/service/webService/webServiceGuide/webServiceTranslate)
+
+```java
+@SpringBootTest
+@Slf4j
+public class LbsClientTest {
+
+    @Autowired
+	private LbsClient lbsClient;
+
+	@Test
+	public void coordTranslate() {
+		List<LocationRequest> locations = new ArrayList<>();
+		locations.add(new LocationRequest(39.12, 116.83));
+		locations.add(new LocationRequest(30.21, 115.43));
+		CoordTranslateRequest request = new CoordTranslateRequest();
+		request.setLocations(locations);
+		request.setType(LocationTypeEnum.BAIDU.getType());
+		CoordTranslateResponse response = lbsClient.coordTranslate(request);
+		log.info(response.toString());
+	}
+}
+```
+
 ### [IP定位](https://lbs.qq.com/service/webService/webServiceGuide/webServiceIp)
 
 ```java
@@ -322,7 +344,7 @@ public class LbsClientTest {
 - [ ] 批量距离计算（矩阵）
 - [ ] 货车路线规划 & 距离矩阵
 - [ ] 行政区划
-- [ ] 坐标转换
+- [x] 坐标转换
 - [x] IP定位
 - [ ] 智能硬件定位（暂不支持）
 

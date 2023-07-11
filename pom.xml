@@ -13,7 +13,7 @@
 
     <groupId>com.starimmortal</groupId>
     <artifactId>lbs-spring-boot</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>lbs-spring-boot</name>
     <description>Tencent LBS WebService API Spring Boot Starter</description>
     <url>https://github.com/ElanYoung/lbs-spring-boot/tree/main</url>

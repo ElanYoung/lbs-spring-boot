@@ -7,7 +7,7 @@
     <parent>
         <artifactId>lbs-spring-boot</artifactId>
         <groupId>com.starimmortal</groupId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
 
     <artifactId>lbs-client-core</artifactId>
