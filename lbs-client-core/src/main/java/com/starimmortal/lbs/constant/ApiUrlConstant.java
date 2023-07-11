@@ -39,6 +39,11 @@ public class ApiUrlConstant {
 	public final static String GEOCODER_URL = "/ws/geocoder/v1";
 
 	/**
+	 * 坐标转换
+	 */
+	public final static String COORD_TRANSLATE_URL = "/ws/coord/v1/translate";
+
+	/**
 	 * IP定位
 	 */
 	public final static String LOCATION_IP_URL = "/ws/location/v1/ip";

@@ -1,15 +1,16 @@
 package com.starimmortal.lbs;
 
+import com.starimmortal.lbs.enumeration.LocationTypeEnum;
 import com.starimmortal.lbs.enumeration.SearchPolicyEnum;
 import com.starimmortal.lbs.request.*;
-import com.starimmortal.lbs.response.GeocoderResponse;
-import com.starimmortal.lbs.response.IpLocationResponse;
-import com.starimmortal.lbs.response.PlaceSearchResponse;
-import com.starimmortal.lbs.response.ReverseGeocoderResponse;
+import com.starimmortal.lbs.response.*;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootTest(classes = { LbsClient.class })
 @Slf4j
@@ -132,6 +133,18 @@ public class LbsClientTest {
 	@Test
 	public void geocoder() {
 		GeocoderResponse response = lbsClient.geocoder("北京市海淀区彩和坊路海淀西大街74号");
+		log.info(response.toString());
+	}
+
+	@Test
+	public void coordTranslate() {
+		List<LocationRequest> locations = new ArrayList<>();
+		locations.add(new LocationRequest(39.12, 116.83));
+		locations.add(new LocationRequest(30.21, 115.43));
+		CoordTranslateRequest request = new CoordTranslateRequest();
+		request.setLocations(locations);
+		request.setType(LocationTypeEnum.BAIDU.getType());
+		CoordTranslateResponse response = lbsClient.coordTranslate(request);
 		log.info(response.toString());
 	}
 
