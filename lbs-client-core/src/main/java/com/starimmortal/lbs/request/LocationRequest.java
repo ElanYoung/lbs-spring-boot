@@ -1,6 +1,9 @@
 package com.starimmortal.lbs.request;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 经纬度（GCJ02坐标系）请求类
