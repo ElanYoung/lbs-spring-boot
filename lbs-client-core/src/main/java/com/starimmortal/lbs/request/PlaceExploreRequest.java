@@ -1,9 +1,7 @@
 package com.starimmortal.lbs.request;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.starimmortal.lbs.constant.ApiUrlConstant;
 import com.starimmortal.lbs.response.PlaceSearchResponse;
-import com.starimmortal.lbs.serializer.LbsRequestSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -30,7 +28,6 @@ public class PlaceExploreRequest extends BaseRequest<PlaceSearchResponse> {
 	 * auto_extend：[可选]
 	 * 当前范围无结果时，是否自动扩大范围，取值：0（不扩大）；1（默认）自动扩大范围（依次按照按1公里、2公里、5公里，最大到全城市范围搜索）
 	 */
-	@JsonSerialize(using = LbsRequestSerializer.class)
 	private NearbyBoundaryRequest boundary;
 
 	/**

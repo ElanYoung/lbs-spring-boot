@@ -1,9 +1,7 @@
 package com.starimmortal.lbs.request;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.starimmortal.lbs.constant.ApiUrlConstant;
 import com.starimmortal.lbs.response.ReverseGeocoderResponse;
-import com.starimmortal.lbs.serializer.LbsRequestSerializer;
 import lombok.*;
 import org.springframework.http.HttpMethod;
 
@@ -23,7 +21,6 @@ public class ReverseGeocoderRequest extends BaseRequest<ReverseGeocoderResponse>
 	/**
 	 * 经纬度（GCJ02坐标系），格式：location=lat<纬度>,lng<经度>
 	 */
-	@JsonSerialize(using = LbsRequestSerializer.class)
 	private LocationRequest location;
 
 	/**

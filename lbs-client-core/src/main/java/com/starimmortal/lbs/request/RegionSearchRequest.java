@@ -1,7 +1,5 @@
 package com.starimmortal.lbs.request;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.starimmortal.lbs.serializer.LbsRequestSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -28,7 +26,6 @@ public class RegionSearchRequest extends PlaceSearchRequest {
 	 * 限制在当前区/县范围搜索，无结果时不自动扩大范围（仅在传入city_name为区级或区级行政区划代码时有效）。 3. lat,lng：[可选]
 	 * 当keyword使用酒店、超市等泛分类关键词时，这类场景大多倾向于搜索附近，传入此经纬度，搜索结果会优先就近地点，体验更优。格式顺序为纬度在前，经度在后
 	 */
-	@JsonSerialize(using = LbsRequestSerializer.class)
 	private RegionBoundaryRequest boundary;
 
 	/**
